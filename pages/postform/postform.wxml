@@ -1,0 +1,211 @@
+<view class="container">
+    <block wx:if="{{isreply!=false}}">
+        <!-- 回复 -->
+        <view class="upper_bar">
+            <view class="page_item">
+                <view class="page_title">
+                    <view class="p_title_left">
+                        <p>
+                            No.{{aPageTitle.id}}
+                        </p>
+                        <p>
+                            {{aPageTitle.userid}}
+                        </p>
+                        <p style="{{aPageTitle.userid == poid ? '':'display:none'}}" class="reTitle">
+                            PO
+                        </p>
+                        <p>
+                            {{aPageTitle.now}}
+                        </p>
+                    </view>
+                    <!-- <view class="p_title_right">
+                    {{aPageTitle.replyCount}}
+                    </view>  -->
+                </view>
+                <view class="page_content">
+                    <text decode="true">
+                        {{aPageTitle.content}}
+                    </text>
+                    <block wx:if="{{aPageTitle.img!=''}}">
+                        <image lazy-load="true" src="https://nmbimg.fastmirror.org/thumb/{{aPageTitle.img}}{{aPageTitle.ext}}"
+                        data-lsrc="https://nmbimg.fastmirror.org/image/{{aPageTitle.img}}{{aPageTitle.ext}}"
+                        id="img{{aPageTitle.id}}" mode="aspectFit" catchtap='loadImg'>
+                        </image>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{isreply!=false}}">
+        <!-- 回复 -->
+        <view class="post_form">
+        </view>
+    </block>
+    <block wx:else>
+        <form name="doPostThread" bindsubmit="formSubmit">
+            <!-- 发新串 -->
+            <view class="post_form">
+                <!-- <view class="post_item">
+                <!-- 版块ID，需要传参 -->
+                <!-- <input name="fid" value="4" type="hidden"/>
+            </view>
+            -->
+            <!-- <view class="post_item">
+            <!-- 名称，默认"无名氏"，不建议填写 -->
+            <!-- <input name="name" size="28" value="" maxlength="100" type="text"/>
+</view>
+-->
+<!-- <view class="post_item"> -->
+<!-- 管理员，默认勾选 -->
+<!-- <input name="isManager" value="true" type="checkbox"/>
+</view>
+-->
+<!-- <view class="post_item"> -->
+<!-- 邮箱，默认为空 -->
+<!-- <input name="email" size="28" value="" maxlength="100" type="text"/>
+</view>
+-->
+<!-- <view class="post_item"> -->
+<!-- 标题 -->
+<!-- <input name="title" size="28" value="" maxlength="100" type="text"/>
+</view>
+-->
+<view class="post_item">
+    <!-- 正文 -->
+    <textarea id="content" name="content" maxlength="10000" placeholder='正文' bindblur='saveContent' bindfocus='footbarUP' value="{{content}}" show-confirm-bar="" bindtap='emojiUpBlock' style='{{emojiOpen||onFocusUp==true?"height:38vh":""}}'>
+    </textarea>
+    <input id="hdinput" name="cookie" value="{{cookie}}" hidden='true'></input>
+</view>
+
+<view class="foot_bar" style='{{onFocusUp==true?"bottom: 51vh":""}}' hover-stop-propagation="true">
+    <view class="foot_item" bindtap='openEmojibar'>
+        <icon class="iconfont icon-biaoqing" />
+    </view>
+    <view class="foot_item fcenter" bindtap='toIcenter'>
+        <icon class="iconfont icon-tupian" />
+    </view>
+    <view class="foot_item" >
+        <button  class="iconfont icon-747bianjiqi_tuya" formType="submit"></button>
+    </view>
+</view>
+<view class="emoji_bar" style="{{translate}}" >
+<view class="close_bar" bindtap="tap_close">
+  <icon class="iconfont icon-haofangtuo400iconfontzhedie" /> 
+</view>
+     <ul catchtap="tap_emoji">
+<li id="e_1" data-value="|∀ﾟ">|∀ﾟ</li>
+<li id="e_2" data-value="(´ﾟДﾟ`)">(´ﾟДﾟ`)</li>
+<li id="e_3" data-value="(;´Д`)">(;´Д`)</li>
+<li id="e_4" data-value="(｀･ω･)">(｀･ω･)</li>
+<li id="e_5" data-value="(=ﾟωﾟ)=">(=ﾟωﾟ)=</li>
+<li id="e_6" data-value="| ω・´)">| ω・´)</li>
+<li id="e_7" data-value="|-` )">|-` )</li>
+<li id="e_8" data-value="|д` )">|д` )</li>
+<li id="e_9" data-value="|ー` )">|ー` )</li>
+<li id="e_10" data-value="|∀` )">|∀` )</li>
+<li id="e_11" data-value="(つд⊂)">(つд⊂)</li>
+<li id="e_12" data-value="(ﾟДﾟ≡ﾟДﾟ)">(ﾟДﾟ≡ﾟДﾟ)</li>
+<li id="e_13" data-value="(＾o＾)ﾉ">(＾o＾)ﾉ</li>
+<li id="e_14" data-value="(|||ﾟДﾟ)">(|||ﾟДﾟ)</li>
+<li id="e_15" data-value="( ﾟ∀ﾟ)">( ﾟ∀ﾟ)</li>
+<li id="e_16" data-value="( ´∀`)">( ´∀`)</li>
+<li id="e_17" data-value="(*´∀`)">(*´∀`)</li>
+<li id="e_18" data-value="(*ﾟ∇ﾟ)">(*ﾟ∇ﾟ)</li>
+<li id="e_19" data-value="(*ﾟーﾟ)">(*ﾟーﾟ)</li>
+<li id="e_20" data-value="(　ﾟ 3ﾟ)">(　ﾟ 3ﾟ)</li>
+<li id="e_21" data-value="( ´ー`)">( ´ー`)</li>
+<li id="e_22" data-value="( ・_ゝ・)">( ・_ゝ・)</li>
+<li id="e_23" data-value="( ´_ゝ`)">( ´_ゝ`)</li>
+<li id="e_24" data-value="(*´д`)">(*´д`)</li>
+<li id="e_25" data-value="(・ー・)">(・ー・)</li>
+<li id="e_26" data-value="(・∀・)">(・∀・)</li>
+<li id="e_27" data-value="(ゝ∀･)">(ゝ∀･)</li>
+<li id="e_28" data-value="(〃∀〃)">(〃∀〃)</li>
+<li id="e_29" data-value="(*ﾟ∀ﾟ*)">(*ﾟ∀ﾟ*)</li>
+<li id="e_30" data-value="( ﾟ∀。)">( ﾟ∀。)</li>
+<li id="e_31" data-value="( `д´)">( `д´)</li>
+<li id="e_32" data-value="(`ε´ )">(`ε´ )</li>
+<li id="e_33" data-value="(`ヮ´ )">(`ヮ´ )</li>
+<li id="e_34" data-value="σ`∀´)">σ`∀´)</li>
+<li id="e_35" data-value="ﾟ∀ﾟ)σ">ﾟ∀ﾟ)σ</li>
+<li id="e_36" data-value="ﾟ ∀ﾟ)ノ">ﾟ ∀ﾟ)ノ</li>
+<li id="e_37" data-value="(╬ﾟдﾟ)">(╬ﾟдﾟ)</li>
+<li id="e_38" data-value="(|||ﾟдﾟ)">(|||ﾟдﾟ)</li>
+<li id="e_39" data-value="( ﾟдﾟ)">( ﾟдﾟ)</li>
+<li id="e_40" data-value="Σ( ﾟдﾟ)">Σ( ﾟдﾟ)</li>
+<li id="e_41" data-value="( ;ﾟдﾟ)">( ;ﾟдﾟ)</li>
+<li id="e_42" data-value="( ;´д`)">( ;´д`)</li>
+<li id="e_43" data-value="(　д ) ﾟ ﾟ">(　д ) ﾟ ﾟ</li>
+<li id="e_44" data-value="( ☉д⊙)">( ☉д⊙)</li>
+<li id="e_45" data-value="(((　ﾟдﾟ)))">(((　ﾟдﾟ)))</li>
+<li id="e_46" data-value="( ` ・´)">( ` ・´)</li>
+<li id="e_47" data-value="( ´д`)">( ´д`)</li>
+<li id="e_48" data-value="( -д-)">( -д-)</li>
+<li id="e_49" data-value="(&gt;д&lt;)">(&gt;д&lt;)</li>
+<li id="e_50" data-value="･ﾟ( ﾉд`ﾟ)">･ﾟ( ﾉд`ﾟ)</li>
+<li id="e_51" data-value="( TдT)">( TдT)</li>
+<li id="e_52" data-value="(￣∇￣)">(￣∇￣)</li>
+<li id="e_53" data-value="(￣3￣)">(￣3￣)</li>
+<li id="e_54" data-value="(￣ｰ￣)">(￣ｰ￣)</li>
+<li id="e_55" data-value="(￣ . ￣)">(￣ . ￣)</li>
+<li id="e_56" data-value="(￣皿￣)">(￣皿￣)</li>
+<li id="e_57" data-value="(￣艸￣)">(￣艸￣)</li>
+<li id="e_58" data-value="(￣︿￣)">(￣︿￣)</li>
+<li id="e_59" data-value="(￣︶￣)">(￣︶￣)</li>
+<li id="e_60" data-value="ヾ(´ωﾟ｀)">ヾ(´ωﾟ｀)</li>
+<li id="e_61" data-value="(*´ω`*)">(*´ω`*)</li>
+<li id="e_62" data-value="(・ω・)">(・ω・)</li>
+<li id="e_63" data-value="( ´・ω)">( ´・ω)</li>
+<li id="e_64" data-value="(｀・ω)">(｀・ω)</li>
+<li id="e_65" data-value="(´・ω・`)">(´・ω・`)</li>
+<li id="e_66" data-value="(`・ω・´)">(`・ω・´)</li>
+<li id="e_67" data-value="( `_っ´)">( `_っ´)</li>
+<li id="e_68" data-value="( `ー´)">( `ー´)</li>
+<li id="e_69" data-value="( ´_っ`)">( ´_っ`)</li>
+<li id="e_70" data-value="( ´ρ`)">( ´ρ`)</li>
+<li id="e_71" data-value="( ﾟωﾟ)">( ﾟωﾟ)</li>
+<li id="e_72" data-value="(oﾟωﾟo)">(oﾟωﾟo)</li>
+<li id="e_73" data-value="(　^ω^)">(　^ω^)</li>
+<li id="e_74" data-value="(｡◕∀◕｡)">(｡◕∀◕｡)</li>
+<li id="e_75" data-value="/( ◕‿‿◕ )\\">/( ◕‿‿◕ )\</li>
+<li id="e_76" data-value="ヾ(´ε`ヾ)">ヾ(´ε`ヾ)</li>
+<li id="e_77" data-value="(ノﾟ∀ﾟ)ノ">(ノﾟ∀ﾟ)ノ</li>
+<li id="e_78" data-value="(σﾟдﾟ)σ">(σﾟдﾟ)σ</li>
+<li id="e_79" data-value="(σﾟ∀ﾟ)σ">(σﾟ∀ﾟ)σ</li>
+<li id="e_80" data-value="|дﾟ )">|дﾟ )</li>
+<li id="e_81" data-value="┃電柱┃">┃電柱┃</li>
+<li id="e_82" data-value="ﾟ(つд`ﾟ)">ﾟ(つд`ﾟ)</li>
+<li id="e_83" data-value="ﾟÅﾟ )　">ﾟÅﾟ )　</li>
+<li id="e_84" data-value="⊂彡☆))д`)">⊂彡☆))д`)</li>
+<li id="e_85" data-value="⊂彡☆))д´)">⊂彡☆))д´)</li>
+<li id="e_86" data-value="⊂彡☆))∀`)">⊂彡☆))∀`)</li>
+<li id="e_87" data-value="(´∀((☆ミつ">(´∀((☆ミつ</li>
+<li id="e_91" data-value="ん？">ん？</li>
+<li id="e_88" data-value="（察觉）">（察觉）</li>
+<li id="e_89" data-value="（惊愕）">（惊愕）</li>
+<li id="e_90" data-value="（便乘）">（便乘）</li>
+<li id="e_91" data-value="（绝望）">（绝望）</li>
+<li id="e_92" data-value="（确信）">（确信）</li>
+<li id="e_93" data-value="（暴论）">（暴论）</li>
+<li id="e_94" data-value="（大嘘）">（大嘘）</li>
+<li id="e_95" data-value="（迫真）">（迫真）</li>
+<li id="e_96" data-value="（欢喜）">（欢喜）</li>
+<li id="e_97" data-value="（正论）">（正论）</li>
+<li id="e_98" data-value="（名言）">（名言）</li>
+<li id="e_99" data-value="（小声）">（小声）</li>
+<li id="e_100" data-value="（提案）">（提案）</li>
+<li id="e_101" data-value="（困惑）">（困惑）</li>
+<li id="e_102" data-value="（池沼）">（池沼）</li>
+<li id="e_103" data-value="（小並感）">（小並感）</li>
+    </ul> 
+</view>
+</view>
+</form>
+</block>
+</view>
+<view class="wojuedehenhaokan">
+   <ul>
+<li>|∀ﾟ</li><li>(´ﾟДﾟ`)</li><li>(;´Д`)</li><li>(｀･ω･)</li><li>(=ﾟωﾟ)=</li><li>| ω・´)</li><li>|-` )</li><li>|д` )</li><li>|ー` )</li><li>|∀` )</li><li>(つд⊂)</li><li>(ﾟДﾟ≡ﾟДﾟ)</li><li>(＾o＾)ﾉ</li><li>(|||ﾟДﾟ)</li><li>( ﾟ∀ﾟ)</li><li>( ´∀`)</li><li>(*´∀`)</li><li>(*ﾟ∇ﾟ)</li><li>(*ﾟーﾟ)</li><li>(　ﾟ 3ﾟ)</li><li>( ´ー`)</li><li>( ・_ゝ・)</li><li>( ´_ゝ`)</li><li>(*´д`)</li><li>(・ー・)</li><li>(・∀・)</li><li>(ゝ∀･)</li><li>(〃∀〃)</li><li>(*ﾟ∀ﾟ*)</li><li>( ﾟ∀。)</li><li>( `д´)</li><li>(`ε´ )</li><li>(`ヮ´ )</li><li>σ`∀´)</li><li>ﾟ∀ﾟ)σ</li><li>ﾟ ∀ﾟ)ノ</li><li>(╬ﾟдﾟ)</li><li>(|||ﾟдﾟ)</li><li>( ﾟдﾟ)</li><li>Σ( ﾟдﾟ)</li><li>( ;ﾟдﾟ)</li><li>( ;´д`)</li><li>(　д ) ﾟ ﾟ</li><li>( ☉д⊙)</li><li>(((　ﾟдﾟ)))</li><li>( ` ・´)</li><li>( ´д`)</li><li>( -д-)</li><li>(&gt;д&lt;)</li><li>･ﾟ( ﾉд`ﾟ)</li><li>( TдT)</li><li>(￣∇￣)</li><li>(￣3￣)</li><li>(￣ｰ￣)</li><li>(￣ . ￣)</li><li>(￣皿￣)</li><li>(￣艸￣)</li><li>(￣︿￣)</li><li>(￣︶￣)</li><li>ヾ(´ωﾟ｀)</li><li>(*´ω`*)</li><li>(・ω・)</li><li>( ´・ω)</li><li>(｀・ω)</li><li>(´・ω・`)</li><li>(`・ω・´)</li><li>( `_っ´)</li><li>( `ー´)</li><li>( ´_っ`)</li><li>( ´ρ`)</li><li>( ﾟωﾟ)</li><li>(oﾟωﾟo)</li><li>(　^ω^)</li><li>(｡◕∀◕｡)</li><li>/( ◕‿‿◕ )\</li><li>ヾ(´ε`ヾ)</li><li>(ノﾟ∀ﾟ)ノ</li><li>(σﾟдﾟ)σ</li><li>(σﾟ∀ﾟ)σ</li><li>|дﾟ )</li><li>┃電柱┃</li><li>ﾟ(つд`ﾟ)</li><li>ﾟÅﾟ )　</li><li>⊂彡☆))д`)</li><li>⊂彡☆))д´)</li><li>⊂彡☆))∀`)</li><li>(´∀((☆ミつ</li>
+<li>|∀ﾟ</li><li>(|||ﾟДﾟ)</li><li>( ﾟ∀ﾟ)</li><li>( ´∀`)</li><li>(*´∀`)</li><li>(*ﾟ∇ﾟ)</li><li>(*ﾟーﾟ)</li><li>(　ﾟ 3ﾟ)</li><li>( ´ー`)</li><li>( ・_ゝ・)</li><li>( ´_ゝ`)</li><li>(*´д`)</li><li>(・ー・)</li><li>(・∀・)</li><li>(ゝ∀･)</li><li>(〃∀〃)</li><li>(*ﾟ∀ﾟ*)</li><li>( ﾟ∀。)</li><li>( `д´)</li><li>(`ε´ )</li><li>(`ヮ´ )</li><li>σ`∀´)</li><li>ﾟ∀ﾟ)σ</li><li>ﾟ ∀ﾟ)ノ</li><li>(╬ﾟдﾟ)</li><li>(|||ﾟдﾟ)</li><li>( ﾟдﾟ)</li><li>Σ( ﾟдﾟ)</li><li>( ;ﾟдﾟ)</li><li>( ;´д`)</li><li>(　д ) ﾟ ﾟ</li><li>( ☉д⊙)</li><li>(((　ﾟдﾟ)))</li><li>( ` ・´)</li><li>( ´д`)</li><li>┃電柱┃</li><li>ﾟ(つд`ﾟ)</li><li>ﾟÅﾟ )　</li><li>⊂彡☆))д`)</li><li>⊂彡☆))д´)</li><li>⊂彡☆))∀`)</li><li>(´∀((☆ミつ</li><li>( -д-)</li><li>(&gt;д&lt;)</li><li>･ﾟ( ﾉд`ﾟ)</li><li>( TдT)</li><li>(￣∇￣)</li><li>(￣3￣)</li><li>(￣ｰ￣)</li><li>(￣ . ￣)</li><li>(￣皿￣)</li><li>(￣艸￣)</li><li>(￣︿￣)</li><li>(￣︶￣)</li><li>ヾ(´ωﾟ｀)</li><li>(*´ω`*)</li><li>(・ω・)</li><li>( ´・ω)</li><li>(｀・ω)</li><li>(´・ω・`)</li><li>(`・ω・´)</li><li>( `_っ´)</li><li>( `ー´)</li><li>( ´_っ`)</li><li>( ´ρ`)</li><li>( ﾟωﾟ)</li><li>(oﾟωﾟo)</li><li>(´ﾟДﾟ`)</li><li>(;´Д`)</li><li>(｀･ω･)</li><li>(=ﾟωﾟ)=</li><li>| ω・´)</li><li>|-` )</li><li>|д` )</li><li>|ー` )</li><li>|∀` )</li><li>(つд⊂)</li><li>(ﾟДﾟ≡ﾟДﾟ)</li><li>(＾o＾)ﾉ</li><li>(　^ω^)</li><li>(｡◕∀◕｡)</li><li>/( ◕‿‿◕ )\</li><li>ヾ(´ε`ヾ)</li><li>(ノﾟ∀ﾟ)ノ</li><li>(σﾟдﾟ)σ</li><li>(σﾟ∀ﾟ)σ</li><li>|дﾟ )</li>
+   </ul>
+</view>

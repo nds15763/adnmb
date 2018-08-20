@@ -1,0 +1,20 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/article/article",
+    "pages/showimg/showimg",
+    "pages/actrpg/actrpg",
+    "pages/setting/setting",
+    "pages/favarticle/favarticle",
+    "pages/postform/postform",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "backgroundColor": "#E34451",
+    "navigationBarBackgroundColor": "#E34451",
+    "navigationBarTitleText": "小A岛-匿名版",
+    "navigationBarTextStyle":"white",
+    "onReachBottomDistance":"2000px"
+  }
+}

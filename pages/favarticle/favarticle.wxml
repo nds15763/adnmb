@@ -1,0 +1,41 @@
+ <view class="container">
+     <view class="top_bar"> 
+     <view class="inner_bar"> 
+      <p style="float:left;margin-left:5px;margin-top:1px;">{{title}}</p>
+      <!-- <icon class="iconfont icon-icon" style="float:right; margin-right:5vw;font-size:5vh" /> -->
+     </view>
+    </view>
+    <view class="page_list">
+      <scroll-view class="scroll-view_H"  scroll-y="true"  bindscrolltolower="bindPageDown" style="width: 100%;height:100vh" >
+<block wx:for="{{pageList}}" wx:for-index="idx" wx:for-item="item" wx:key="id" data-idx="{{idx}}">
+          <view class="page_item" id="{{idx}}" data-aNum="{{item.id}}" bindtap='toArticle'>
+            <view class="page_title">
+              <view class="p_title_left">
+                <p>No.{{item.id}}</p>
+                <block wx:if="{{item.admin==1}}">
+                  <p class="isadmin">{{item.userid}}</p>
+                </block>
+                <block wx:else>
+                <p style="{{item.userid == poid ? '':'display:none'}}" class="reTitle">PO</p>
+                </block>
+                <p>{{item.now}}</p>
+              </view>
+              <!-- <view class="p_title_right">
+                {{item.replyCount}}
+              </view> -->
+            </view>
+            <view class="page_content">
+              <text decode="true">
+              {{item.content}}
+              </text>
+              <block wx:if="{{item.img!=''}}">
+                <view class="v_img">
+                <image lazy-load="true" src="https://nmbimg.fastmirror.org/thumb/{{item.img}}{{item.ext}}" data-lsrc="https://nmbimg.fastmirror.org/image/{{item.img}}{{item.ext}}" id="img{{item.id}}" mode="aspectFill" catchtap='loadImg' class="inner_img"></image>
+                </view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+</view>

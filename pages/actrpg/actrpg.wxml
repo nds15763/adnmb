@@ -1,0 +1,12 @@
+<!--logs.wxml-->
+<view class="container">
+  <view class="img_show">
+    <text>
+      已经是夜里12点多，你坐在电脑前点开了熟悉的IDE。两个眼皮在拼命打架，可你还死撑着不睡，敲着文档设计跑团的数据结构。越写越困越写越累，你不知不觉就在电脑前睡了过去。等你再睁开眼睛...
+    </text>
+  </view>
+  <view class="b_select">
+    <button>发现天已经亮了，但已经不再是蓝色。</button>
+    <button>天还黑着，你起身想去上个厕所，刚准备开门但是听见门外有奇怪的声音。</button>
+  </view>
+</view>

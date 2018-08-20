@@ -1,0 +1,99 @@
+  <view class="page"> 
+   <view class="page-bottom"> 
+    <view class="img_box">
+
+    </view>
+    <view class="slim_ach">
+    <scroll-view class="list_content" scroll-y="true" style="width: 100%;height:100vh"> 
+    <block wx:for="{{achannel}}" wx:for-index="idx" wx:for-item="item" wx:key="id" data-idx="{{idx}}">
+     <view class="nav-name" id="{{idx}}" catchtap="handleTap">
+      <view class="firstli">{{item.name}}</view>
+      <view class="submenu">
+        <block wx:for="{{item.forums}}" wx:for-index="findex" wx:for-item="forums" wx:key="forumsId" data-idx="{{findex}}">
+          <view id="{{forums.id}}" class="subli {{idx == currentId ? 'show':'hide'}}">
+            {{forums.name}}
+          </view>
+        </block>
+      </view>
+     </view>
+     </block>
+    </scroll-view>
+   </view>
+   </view>
+   <!-- <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top" style="{{translate}}">  -->
+   <view class="page-top" style="{{translate}}"> 
+    <view class="top_bar" style='padding-left:5px'> 
+     <view class="inner_bar"> 
+      <!-- <icon class="iconfont icon-fenlei" style="float:left;" size='18'bindtap="tap_ch"/>  -->
+      <p style="float:left;margin-left:5px;margin-top:1px;">{{title}}</p>
+      <icon class="iconfont icon-zhuanfa" style="float:right; margin-right:5vw" size='18' bindtap='toForm' data-chanid="{{curId}}"/>
+     </view>
+     <button class="right_bar" id="{{curId}}" open-type="share">
+      <icon class="iconfont icon-fenxiang2" style="float: right;" size='18'bindtap="tap_ch"/> 
+     </button>
+      <icon class="iconfont icon-shoucang" style="float:right;" data-tid='{{aPageTitle.id}}' size='18'bindtap="addFav"/> 
+    </view>
+    <view class="page_list">
+      <scroll-view class="scroll-view_H"  scroll-y="true"  bindscrolltolower="bindPageDown" style="width: 100%;height:100vh" >
+          <view class="page_item">
+            <view class="page_title">
+              <view class="p_title_left">
+                <p>No.{{aPageTitle.id}}</p>
+                <block wx:if="{{aPageTitle.admin==1}}">
+                  <p class="isadmin">{{aPageTitle.userid}}</p>
+                </block>
+                <block wx:else>
+                <p style="{{aPageTitle.userid == poid ? '':'display:none'}}" class="reTitle">PO</p>
+                </block>
+                <!-- <p>{{aPageTitle.userid}}</p>
+                <p style="{{aPageTitle.userid == poid ? '':'display:none'}}" class="reTitle">PO</p> -->
+                <p>{{aPageTitle.now}}</p>
+              </view>
+               <!-- <view class="p_title_right">
+                {{aPageTitle.replyCount}}
+              </view>  -->
+            </view>
+            <view class="page_content">
+              <text decode="true">
+              {{aPageTitle.content}}
+              </text>
+              <block wx:if="{{aPageTitle.img!=''}}">
+                <view class="v_img">
+                <image lazy-load="true" src="https://nmbimg.fastmirror.org/thumb/{{aPageTitle.img}}{{aPageTitle.ext}}" data-lsrc="https://nmbimg.fastmirror.org/image/{{aPageTitle.img}}{{aPageTitle.ext}}" id="img{{aPageTitle.id}}" mode="aspectFill" class="inner_img" catchtap='loadImg'></image>
+                </view>
+              </block>
+            </view>
+          </view>
+        <block wx:for="{{aPageRep}}" wx:for-index="idx" wx:for-item="item" wx:key="id" data-idx="{{idx}}">
+          <view class="page_item" id="{{idx}}" data-aNum="{{item.id}}">
+            <view class="page_title">
+              <view class="p_title_left">
+                <p>No.{{item.id}}</p>
+                <block wx:if="{{item.admin==1}}">
+                  <p class="isadmin">{{item.userid}}</p>
+                </block>
+                <block wx:else>
+                <p style="{{item.userid == poid ? '':'display:none'}}" class="reTitle">PO</p>
+                </block>
+                <p>{{item.now}}</p>
+              </view>
+              <!-- <view class="p_title_right">
+                {{item.replyCount}}
+              </view> -->
+            </view>
+            <view class="page_content">
+              <text decode="true">
+              {{item.content}}
+              </text>
+              <block wx:if="{{item.img!=''}}">
+                <view class="v_img">
+                <image lazy-load="true" src="https://nmbimg.fastmirror.org/thumb/{{item.img}}{{item.ext}}" data-lsrc="https://nmbimg.fastmirror.org/image/{{item.img}}{{item.ext}}" id="img{{item.id}}" mode="aspectFill" catchtap='loadImg' class="inner_img"></image>
+                </view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+   </view> 
+  </view> 

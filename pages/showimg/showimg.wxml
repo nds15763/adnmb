@@ -1,0 +1,21 @@
+<!--logs.wxml-->
+<!-- <template name="showimg">
+  <scroll-view class="backdrop"  catchtouchmove="bindTouchMove" catchtouchend="bindTouchEnd" bindtouchstart="bindTouchStart">
+    <view class="close-icon" bindtap="closeResizeModal">
+      取消预览
+    </view>
+        <image catchtouchmove="bindTouchMove" bindtouchend="bindTouchEnd" bindtouchstart="bindTouchStart"  
+        style=" transform: scale({{img.baseScale}}); position:absolute; top:{{img.top}}px; left:{{img.left}}px; "
+        mode="widthFix" class="dtl-img" src="{{img.currentSrc}}"></image> 
+  </scroll-view>
+ </template> -->
+ <view class="container">
+     <view class="top_bar"> 
+     <view class="inner_bar"> 
+      <icon class="iconfont icon-icon" style="float:right; margin-right:5vw;font-size:5vh" />
+     </view>
+    </view>
+  <view class="showimg">
+
+  </view>
+</view>

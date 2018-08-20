@@ -1,0 +1,92 @@
+@import "/src/css/iconfont.wxss";
+page,.page {
+  height: 100%;
+  font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, 'Droid Sans Fallback', 'Microsoft Yahei', sans-serif;
+}
+.page-bottom{
+  height: 100%;
+  width: 750rpx;
+  position: fixed; 
+  background-color: #fff;
+  z-index: 0;
+}
+.img_box{
+  background-color: #E34451;
+  height: 48px;
+  width:100%;
+}
+.isadmin{
+  color: #E34451;
+  font-weight: bold;
+}
+.v_img{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width:30vh;
+  height:20vh;
+}
+.inner_img{
+  width:100%;
+  height:100%;
+  display:inline-block;
+  overflow:hidden;
+}
+.wc{
+  color: white;
+  padding: 30rpx 0 30rpx 40rpx;
+}
+.page-top{
+  height: 100%;
+  position: fixed;
+  width: 750rpx;
+  z-index: 0;
+  transition: All 0.4s ease; 
+  -webkit-transition: All 0.4s ease;
+  box-shadow: -5px 0px 5px -5px black;
+}
+
+.top_bar{
+  background-color: #FD4C5B;
+  border-bottom:1px outset #B7C8E3;
+  color:#fff;
+  height:8vh;
+  line-height: 8vh;
+  position:absolute;
+  width:100%;
+  z-index: 100;
+}
+.inner_bar{
+  margin: auto 5px;
+  width: 100%;
+  height: 8vh;
+  line-height:8vh;
+}
+.page_list{
+  width:100%;
+  height: 100%;
+  position:absolute;
+  background-color: #E0E8F3;
+  overflow-y: scroll;
+  top:8vh;
+
+}
+.slim_ach{
+  height:100%;
+  overflow-y: scroll;
+}
+/* .c-state1{
+  transform: rotate(0deg) scale(1) translate(75%,0%); 
+  -webkit-transform: rotate(0deg) scale(1) translate(75%,0%); 
+}
+.c-state2{
+  transform: rotate(0deg) scale(.8) translate(75%,0%); 
+  -webkit-transform: rotate(0deg) scale(.8) translate(75%,0%); 
+} */
+/* .backdrop{
+  background: rgba(0, 0, 0, 1);
+  width:100%;
+  height: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+} */

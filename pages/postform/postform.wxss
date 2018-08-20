@@ -1,0 +1,98 @@
+.container{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+.post_form{
+   padding-top:10px; 
+}
+.post_form input{
+  border: 1px solid #a0a0a0;
+}
+.post_item textarea{
+  padding: 5px;
+  margin:0 10px;
+  height: 86vh;
+  width: auto;
+  background-color: #fff;
+  opacity: 0.95;
+  z-index: 100;
+  border-radius:6px;
+  box-shadow: darkgrey 0px 0px 5px 1px;
+}
+.post_item{
+   width: 100%;
+} 
+.foot_bar{
+  z-index: 200;
+  width:40%;height:7vh;
+  border-radius:6px;
+  border:1px solid #8c898c;
+  position: fixed;
+  bottom: 5px;
+  left: 10px;
+  background-color: #525252;
+  opacity:0.9;
+}
+.foot_item{
+  display: inline-block;
+  width: 32%;
+  height:35px;
+  text-align:center;
+  color: #fff;
+  font-size: 6vh;
+}
+.wojuedehenhaokan{
+  color:#acacac;
+  position: fixed;
+  float: left;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.emoji_bar{
+  z-index: 250;
+  color: #fff;
+  border-top-right-radius:6px;
+  border-top-left-radius:6px;
+  width: 100%;
+  height: 50vh;
+  background-color: #525252;
+  opacity:0.9;
+  position: fixed;
+  bottom: -52vh;
+  left: 0;
+  padding-bottom: 10px;
+  overflow-y: scroll;
+  transition: All 0.4s ease; 
+  -webkit-transition: All 0.4s ease;
+}
+.close_bar{
+  position: fixed;
+  float: left;
+  height: 20px;
+  width: 100%;
+  text-align: center;
+  background-color: #525252;
+}
+.close_bar icon{
+  margin-top: -5px;
+  color: #8c898c;
+}
+.emoji_bar li{
+  text-align: center;
+  float:left;
+  width: 25%;
+  height: 20px;
+  margin-top: 20px;
+}
+.foot_bar{
+  transition: All 0.4s ease; 
+  -webkit-transition: All 0.4s ease;
+}
+.foot_bar icon{
+  font-size: 5vh;
+}
